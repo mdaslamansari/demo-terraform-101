@@ -1,5 +1,5 @@
 resource "aws_key_pair" "default" {
-  key_name   = "${var.identity}-key"
+#  key_name   = "${var.identity}-key"
  # public_key = var.public_key
 }
 
