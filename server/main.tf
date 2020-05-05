@@ -1,10 +1,10 @@
 resource "aws_key_pair" "default" {
-#  key_name   = "${var.identity}-key"
- # public_key = var.public_key
+  key_name   = "${var.identity}-key"
+  public_key = var.public_key
 }
 
 resource "aws_security_group" "default" {
-  #name_prefix = var.identity
+  name_prefix = var.identity
 
   ingress {
     from_port   = 80
@@ -29,7 +29,7 @@ resource "aws_security_group" "default" {
 
   tags = {
     Created-by = "Terraform"
-  #  Identity   = var.identity
+    Identity   = var.identity
   }
 }
 
@@ -44,13 +44,13 @@ resource "aws_instance" "web" {
 
   tags = {
     Name     = "${var.identity} web ${count.index + 1}/${var.num_webs}"
-  #  Identity = var.identity
+    Identity = var.identity
   }
 
   connection {
     type        = "ssh"
     user        = "ubuntu"
-  #  private_key = var.private_key
+    private_key = var.private_key
     host        = self.public_ip
   }
 
